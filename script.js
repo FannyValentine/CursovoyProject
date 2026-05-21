@@ -13,12 +13,13 @@ const booksData = [
 
 function renderBooks() {
     const container = document.getElementById('booksGrid');
-    const image = document.createElement('img');
     if (!container) return;
-    
     container.innerHTML = booksData.map(book => `
         <div class="book-card">
-            <div class="book-cover">${book.cover}</div>
+            <div class="book-cover">
+                <img src="${book.cover}" alt="${book.title}" 
+                     onerror="this.src='https://placehold.co/300x400/e2e8f0/1e3c3a?text=📖+No+Cover'">
+            </div>
             <div class="book-info">
                 <div class="book-title">${book.title}</div>
                 <div class="book-author">${book.author}</div>
