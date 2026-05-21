@@ -1,6 +1,6 @@
 // Данные книг
 const booksData = [
-    { title: "Мастер и Маргарита", author: "М. Булгаков", price: 349, rentPrice: 99, cover: "https://yandex.ru/images/search?pos=1&from=tabbar&img_url=https%3A%2F%2Fndc.book24.ru%2Fpim%2Fproducts%2Fimages%2F1f%2F06%2F018f5e19-066e-7b1e-a838-d8f1121e1f06.jpg&text=Мастер+и+маргарита&rpt=simage&lr=43" },
+    { title: "Мастер и Маргарита", author: "М. Булгаков", price: 349, rentPrice: 99, cover: "https://avatars.mds.yandex.net/i?id=37672f6d67ec5ceb713320168c4d6f47704f7d1d-5236860-images-thumbs&n=13" },
     { title: "1984", author: "Дж. Оруэлл", price: 299, rentPrice: 89, cover: "👁️" },
     { title: "Атлант расправил плечи", author: "А. Рэнд", price: 599, rentPrice: 149, cover: "🏛️" },
     { title: "Маленькая жизнь", author: "Х. Янагихара", price: 499, rentPrice: 129, cover: "🌆" },
@@ -9,6 +9,7 @@ const booksData = [
     { title: "Гарри Поттер и философский камень", author: "Дж. Роулинг", price: 399, rentPrice: 109, cover: "⚡" },
     { title: "Хребты Безумия", author: "Лав Крафт", price: 699, rentPrice: 209, cover: "⚡" },
     { title: "Первому Игроку Подготовиться", author: "Ран Долфин", price: 299, rentPrice: 99, cover: "⚡" }
+    { title: "Дон Ки Хот", author: "Луиз Де Мартье", price: 199, rentPrice: 99, cover: "⚡" }
 ];
 
 function renderBooks() {
