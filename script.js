@@ -7,6 +7,8 @@ const booksData = [
     { title: "Дюна", author: "Ф. Герберт", price: 449, rentPrice: 119, cover: "🪐" },
     { title: "Преступление и наказание", author: "Ф. Достоевский", price: 279, rentPrice: 79, cover: "⚖️" },
     { title: "Гарри Поттер и философский камень", author: "Дж. Роулинг", price: 399, rentPrice: 109, cover: "⚡" }
+    { title: "Хребты Безумия", author: "Лав Крафт", price: 699, rentPrice: 209, cover: "⚡" }
+    { title: "Первому Игроку Подготовиться", author: "Ран Долфин", price: 299, rentPrice: 99, cover: "⚡" }
 ];
 
 function renderBooks() {
