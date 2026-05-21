@@ -63,6 +63,7 @@ const booksData = [
 function renderBooks() {
     const container = document.getElementById('booksGrid');
     if (!container) return;
+    
     container.innerHTML = booksData.map(book => `
         <div class="book-card">
             <div class="book-cover">
