@@ -4,59 +4,59 @@ const booksData = [
      author: "М. Булгаков", 
      price: 349, 
      rentPrice: 99, 
-     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" 
+     cover: "img/book1.jpg" 
     },
     { title: "1984", 
      author: "Дж. Оруэлл", 
      price: 299, 
      rentPrice: 89, 
-     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" 
+     cover: "img/book2.jpg" 
     },
     { title: "Атлант расправил плечи", 
      author: "А. Рэнд", 
      price: 599, 
      rentPrice: 149, 
-     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" 
+     cover: "img/book3.jpg" 
     },
     { title: "Маленькая жизнь", 
      author: "Х. Янагихара", 
      price: 499, 
      rentPrice: 129, 
-     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" 
+     cover: "img/book4.jpg" 
     },
     { title: "Дюна", 
      author: "Ф. Герберт", 
      price: 449, 
      rentPrice: 119, 
-     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" 
+     cover: "img/book5.jpg" 
     },
     { title: "Преступление и наказание", 
      author: "Ф. Достоевский", 
      price: 279, 
      rentPrice: 79, 
-     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" 
+     cover: "img/book6.jpg" 
     },
     { title: "Гарри Поттер и философский камень", 
      author: "Дж. Роулинг", 
      price: 399, 
      rentPrice: 109, 
-     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" 
+     cover: "img/book7.jpg" 
     },
     { title: "Хребты Безумия", 
      author: "Лав Крафт", 
      price: 699, 
      rentPrice: 209, 
-     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" },
+     cover: "img/book8.jpg" },
     { title: "Первому Игроку Подготовиться", 
      author: "Ран Долфин", 
      price: 299, 
      rentPrice: 99, 
-     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" },
+     cover: "img/book9.jpg" },
     { title: "Дон Ки Хот", 
      author: "Луиз Де Мартье", 
      price: 199, 
      rentPrice: 99, 
-     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" 
+     cover: "img/book10.jpg" 
     }
 ];
 
