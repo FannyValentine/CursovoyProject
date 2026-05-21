@@ -1,6 +1,6 @@
 // Данные книг
 const booksData = [
-    { title: "Мастер и Маргарита", author: "М. Булгаков", price: 349, rentPrice: 99, cover: "🐱" },
+    { title: "Мастер и Маргарита", author: "М. Булгаков", price: 349, rentPrice: 99, cover: "image.src = 'img/MasterMargarite.png';" },
     { title: "1984", author: "Дж. Оруэлл", price: 299, rentPrice: 89, cover: "👁️" },
     { title: "Атлант расправил плечи", author: "А. Рэнд", price: 599, rentPrice: 149, cover: "🏛️" },
     { title: "Маленькая жизнь", author: "Х. Янагихара", price: 499, rentPrice: 129, cover: "🌆" },
@@ -13,6 +13,7 @@ const booksData = [
 
 function renderBooks() {
     const container = document.getElementById('booksGrid');
+    const image = document.createElement('img');
     if (!container) return;
     
     container.innerHTML = booksData.map(book => `
