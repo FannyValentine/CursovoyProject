@@ -1,15 +1,63 @@
 // Данные книг
 const booksData = [
-    { title: "Мастер и Маргарита", author: "М. Булгаков", price: 349, rentPrice: 99, cover: "https://goods-photos.static1-sima-land.com/items/6475796/0/1600.jpg?v=1641840428" },
-    { title: "1984", author: "Дж. Оруэлл", price: 299, rentPrice: 89, cover: "👁️" },
-    { title: "Атлант расправил плечи", author: "А. Рэнд", price: 599, rentPrice: 149, cover: "🏛️" },
-    { title: "Маленькая жизнь", author: "Х. Янагихара", price: 499, rentPrice: 129, cover: "🌆" },
-    { title: "Дюна", author: "Ф. Герберт", price: 449, rentPrice: 119, cover: "🪐" },
-    { title: "Преступление и наказание", author: "Ф. Достоевский", price: 279, rentPrice: 79, cover: "⚖️" },
-    { title: "Гарри Поттер и философский камень", author: "Дж. Роулинг", price: 399, rentPrice: 109, cover: "⚡" },
-    { title: "Хребты Безумия", author: "Лав Крафт", price: 699, rentPrice: 209, cover: "⚡" },
-    { title: "Первому Игроку Подготовиться", author: "Ран Долфин", price: 299, rentPrice: 99, cover: "⚡" }
-    { title: "Дон Ки Хот", author: "Луиз Де Мартье", price: 199, rentPrice: 99, cover: "⚡" }
+    { title: "Мастер и Маргарита", 
+     author: "М. Булгаков", 
+     price: 349, 
+     rentPrice: 99, 
+     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" 
+    },
+    { title: "1984", 
+     author: "Дж. Оруэлл", 
+     price: 299, 
+     rentPrice: 89, 
+     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" 
+    },
+    { title: "Атлант расправил плечи", 
+     author: "А. Рэнд", 
+     price: 599, 
+     rentPrice: 149, 
+     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" 
+    },
+    { title: "Маленькая жизнь", 
+     author: "Х. Янагихара", 
+     price: 499, 
+     rentPrice: 129, 
+     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" 
+    },
+    { title: "Дюна", 
+     author: "Ф. Герберт", 
+     price: 449, 
+     rentPrice: 119, 
+     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" 
+    },
+    { title: "Преступление и наказание", 
+     author: "Ф. Достоевский", 
+     price: 279, 
+     rentPrice: 79, 
+     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" 
+    },
+    { title: "Гарри Поттер и философский камень", 
+     author: "Дж. Роулинг", 
+     price: 399, 
+     rentPrice: 109, 
+     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" 
+    },
+    { title: "Хребты Безумия", 
+     author: "Лав Крафт", 
+     price: 699, 
+     rentPrice: 209, 
+     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" },
+    { title: "Первому Игроку Подготовиться", 
+     author: "Ран Долфин", 
+     price: 299, 
+     rentPrice: 99, 
+     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" },
+    { title: "Дон Ки Хот", 
+     author: "Луиз Де Мартье", 
+     price: 199, 
+     rentPrice: 99, 
+     cover: "https://imo10.labirint.ru/books/1004277/ph_01.jpg/484-0" 
+    }
 ];
 
 function renderBooks() {
