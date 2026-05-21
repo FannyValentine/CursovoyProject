@@ -288,6 +288,10 @@ h2 {
     text-align: center;
     transition: 0.2s;
     box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .feature-card i {
@@ -299,6 +303,11 @@ h2 {
 .feature-card h3 {
     font-size: 1.5rem;
     margin-bottom: 12px;
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 /* BOOKS GRID */
@@ -320,6 +329,8 @@ h2 {
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     transition: 0.2s;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
 }
 
 .book-card:hover {
@@ -346,14 +357,19 @@ h2 {
 .book-card:hover .book-cover img {
     transform: scale(1.05);
 }
+
 .book-info {
     padding: 18px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .book-title {
     font-weight: 700;
     font-size: 1.1rem;
     margin-bottom: 6px;
+    line-height: 1.3;
 }
 
 .book-author {
@@ -366,12 +382,16 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 12px;
+    margin-top: auto;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
 .price {
     font-weight: 800;
     color: #1e3c3a;
+    white-space: nowrap;
+    font-size: 1rem;
 }
 
 .rent-btn, .buy-btn {
@@ -381,6 +401,7 @@ h2 {
     font-size: 0.75rem;
     font-weight: 600;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .rent-btn {
