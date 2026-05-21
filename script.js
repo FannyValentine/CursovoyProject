@@ -1,6 +1,6 @@
 // Данные книг
 const booksData = [
-    { title: "Мастер и Маргарита", author: "М. Булгаков", price: 349, rentPrice: 99, cover: "https://avatars.mds.yandex.net/i?id=37672f6d67ec5ceb713320168c4d6f47704f7d1d-5236860-images-thumbs&n=13" },
+    { title: "Мастер и Маргарита", author: "М. Булгаков", price: 349, rentPrice: 99, cover: "https://goods-photos.static1-sima-land.com/items/6475796/0/1600.jpg?v=1641840428" },
     { title: "1984", author: "Дж. Оруэлл", price: 299, rentPrice: 89, cover: "👁️" },
     { title: "Атлант расправил плечи", author: "А. Рэнд", price: 599, rentPrice: 149, cover: "🏛️" },
     { title: "Маленькая жизнь", author: "Х. Янагихара", price: 499, rentPrice: 129, cover: "🌆" },
