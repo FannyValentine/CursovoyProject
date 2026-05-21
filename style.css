@@ -294,6 +294,19 @@ h2 {
     justify-content: center;
 }
 
+.feature-card-extended {
+    background: white;
+    padding: 32px 24px;
+    border-radius: 52px;
+    text-align: center;
+    transition: 0.2s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+    min-height: 320px;
+    display: auto;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .feature-card i {
     font-size: 2.8rem;
     color: #2a5f5b;
