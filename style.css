@@ -261,13 +261,12 @@ h2 {
 .hero-image {
     flex: 0.8;
     text-align: center;
+    border-image-outset: 5px black;
 }
 
 .hero-image img {
-    content: url("images/logo.jpeg");
-    max-width: 100%;
+    max-width: 170%;
     border-radius: 32px;
-    box-shadow: 0 25px 40px -12px rgba(0,0,0,0.2);
 }
 
 /* FEATURES */
@@ -295,19 +294,6 @@ h2 {
     justify-content: center;
 }
 
-.feature-card-extended {
-    background: white;
-    padding: 32px 24px;
-    border-radius: 90px;
-    text-align: center;
-    transition: 0.2s;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.02);
-    min-height: 320px;
-    display: auto;
-    flex-direction: column;
-    justify-content: center;
-}
-
 .feature-card i {
     font-size: 2.8rem;
     color: #2a5f5b;
@@ -315,7 +301,7 @@ h2 {
 }
 
 .feature-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 12px;
 }
 
@@ -472,8 +458,14 @@ h2 {
     color: #2a5f5b;
 }
 
+.rent-image {
+    flex: 1;
+    text-align: center;  /* ← Добавлено для центрирования */
+}
+
 .rent-image img {
-    max-width: 100%;
+    max-width: 60%;      /* Оставляем ваш размер */
+    height: auto;        /* Сохраняем пропорции */
     border-radius: 28px;
 }
 
