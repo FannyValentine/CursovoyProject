@@ -1,89 +1,109 @@
-// Данные книг
-const booksData = [
-    { title: "Мастер и Маргарита", 
-     author: "М. Булгаков", 
-     price: 349, 
-     rentPrice: 99, 
-     cover: "img/book1.jpg" 
-    },
-    { title: "1984", 
-     author: "Дж. Оруэлл", 
-     price: 299, 
-     rentPrice: 89, 
-     cover: "img/book2.jpg" 
-    },
-    { title: "Атлант расправил плечи", 
-     author: "А. Рэнд", 
-     price: 599, 
-     rentPrice: 149, 
-     cover: "img/book3.jpg" 
-    },
-    { title: "Маленькая жизнь", 
-     author: "Х. Янагихара", 
-     price: 499, 
-     rentPrice: 129, 
-     cover: "img/book4.jpg" 
-    },
-    { title: "Дюна", 
-     author: "Ф. Герберт", 
-     price: 449, 
-     rentPrice: 119, 
-     cover: "img/book5.jpg" 
-    },
-    { title: "Преступление и наказание", 
-     author: "Ф. Достоевский", 
-     price: 279, 
-     rentPrice: 79, 
-     cover: "img/book6.jpg" 
-    },
-    { title: "Гарри Поттер и философский камень", 
-     author: "Дж. Роулинг", 
-     price: 399, 
-     rentPrice: 109, 
-     cover: "img/book7.jpg" 
-    },
-    { title: "Хребты Безумия", 
-     author: "Лав Крафт", 
-     price: 699, 
-     rentPrice: 209, 
-     cover: "img/book8.jpg" },
-    { title: "Первому Игроку Подготовиться", 
-     author: "Ран Долфин", 
-     price: 299, 
-     rentPrice: 99, 
-     cover: "img/book9.jpg" },
-    { title: "Дон Ки Хот", 
-     author: "Луиз Де Мартье", 
-     price: 199, 
-     rentPrice: 99, 
-     cover: "img/book10.jpg" 
-    }
-];
+// ========== ИНИЦИАЛИЗАЦИЯ SUPABASE ==========
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
-function renderBooks() {
+const SUPABASE_URL = 'https://yucrvisojkokunfaoiln.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_q9Xkj9pT4-mpSK-JrX0G_w_Mxygd0ti';
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+console.log('✅ Supabase инициализирован');
+
+// ========== ФУНКЦИИ РАБОТЫ С БАЗОЙ ДАННЫХ ==========
+async function loadBooksFromSupabase() {
+    try {
+        const { data: books, error } = await supabase
+            .from('books')
+            .select('*')
+            .order('created_at', { ascending: false });
+        
+        if (error) {
+            console.error('Ошибка загрузки:', error);
+            return [];
+        }
+        
+        console.log(`✅ Загружено ${books.length} книг`);
+        return books || [];
+    } catch (error) {
+        console.error('Ошибка подключения:', error);
+        return [];
+    }
+}
+// ========== ФУНКЦИИ РАБОТЫ С БАЗОЙ ДАННЫХ ==========
+async function loadBooksFromSupabase() {
+    try {
+        const { data: books, error } = await supabase
+            .from('books')
+            .select('*')
+            .order('created_at', { ascending: false });
+        
+        if (error) {
+            console.error('Ошибка загрузки:', error);
+            return [];
+        }
+        
+        return books || [];
+    } catch (error) {
+        console.error('Ошибка подключения:', error);
+        return [];
+    }
+}
+
+async function searchBooksInSupabase(query) {
+    if (!query || query.length < 2) {
+        return await loadBooksFromSupabase();
+    }
+    
+    try {
+        const { data: books, error } = await supabase
+            .from('books')
+            .select('*')
+            .or(`title.ilike.%${query}%,author.ilike.%${query}%`)
+            .order('title');
+        
+        if (error) {
+            console.error('Ошибка поиска:', error);
+            return [];
+        }
+        
+        return books || [];
+    } catch (error) {
+        console.error('Ошибка:', error);
+        return [];
+    }
+}
+
+// ========== ФУНКЦИЯ ОТРИСОВКИ ==========
+function renderBooks(books) {
     const container = document.getElementById('booksGrid');
     if (!container) return;
     
-    container.innerHTML = booksData.map(book => `
-        <div class="book-card">
+    if (!books || books.length === 0) {
+        container.innerHTML = '<div style="text-align: center; padding: 40px;">Книги не найдены</div>';
+        return;
+    }
+    
+    container.innerHTML = books.map(book => `
+        <div class="book-card" data-id="${book.id}">
             <div class="book-cover">
-                <img src="${book.cover}" alt="${book.title}" 
+                <img src="${book.cover_image || 'https://placehold.co/300x400/e2e8f0/1e3c3a?text=📖+No+Cover'}" 
+                     alt="${book.title}" 
                      onerror="this.src='https://placehold.co/300x400/e2e8f0/1e3c3a?text=📖+No+Cover'">
             </div>
             <div class="book-info">
-                <div class="book-title">${book.title}</div>
-                <div class="book-author">${book.author}</div>
+                <div class="book-title">${escapeHtml(book.title)}</div>
+                <div class="book-author">${escapeHtml(book.author)}</div>
+                <div class="book-description">${book.description ? escapeHtml(book.description.substring(0, 80)) + '...' : ''}</div>
                 <div class="book-actions">
-                    <span class="price">${book.price} ₽</span>
+                    <span class="price">${book.purchase_price} ₽</span>
                     <div>
-                        <button class="rent-btn" data-title="${book.title}" data-price="${book.rentPrice}">Аренда</button>
-                        <button class="buy-btn" data-title="${book.title}" data-price="${book.price}">Купить</button>
+                        <button class="rent-btn" data-id="${book.id}" data-title="${escapeHtml(book.title)}" data-price="${book.rent_price}">Аренда ${book.rent_price} ₽</button>
+                        <button class="buy-btn" data-id="${book.id}" data-title="${escapeHtml(book.title)}" data-price="${book.purchase_price}">Купить</button>
                     </div>
                 </div>
             </div>
         </div>
     `).join('');
-
+    
+    // Обработчики для кнопок
     document.querySelectorAll('.rent-btn, .buy-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -93,6 +113,17 @@ function renderBooks() {
             alert(`✅ Книга "${title}" добавлена для ${action} за ${price} ₽`);
             updateCartBadge();
         });
+    });
+}
+
+// ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ==========
+function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
     });
 }
 
@@ -117,20 +148,16 @@ function setupSearch() {
             }
         });
     }
-
+    
     if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
-            const cards = document.querySelectorAll('.book-card');
-            cards.forEach(card => {
-                const title = card.querySelector('.book-title')?.innerText.toLowerCase() || '';
-                const author = card.querySelector('.book-author')?.innerText.toLowerCase() || '';
-                if (title.includes(query) || author.includes(query)) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+        let searchTimeout;
+        searchInput.addEventListener('input', async (e) => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(async () => {
+                const query = e.target.value;
+                const books = await searchBooksInSupabase(query);
+                renderBooks(books);
+            }, 500);
         });
     }
 }
@@ -173,16 +200,29 @@ function mobileMenu() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    renderBooks();
+// ========== ЗАПУСК ПРИ ЗАГРУЗКЕ СТРАНИЦЫ ==========
+document.addEventListener('DOMContentLoaded', async () => {
+    // Показываем загрузку
+    const container = document.getElementById('booksGrid');
+    if (container) {
+        container.innerHTML = '<div style="text-align: center; padding: 40px;">📚 Загрузка книг...</div>';
+    }
+    
+    // Загружаем книги из Supabase
+    const books = await loadBooksFromSupabase();
+    renderBooks(books);
+    
+    // Настройка поиска и меню
     setupSearch();
     mobileMenu();
     
+    // Корзина
     const cartBtn = document.querySelector('.cart-btn');
     if (cartBtn) {
         cartBtn.addEventListener('click', () => alert('🛒 Корзина: пока пуста. Добавьте книгу!'));
     }
     
+    // Кнопка входа
     const loginBtn = document.querySelector('.btn-outline');
     if (loginBtn && loginBtn.innerText.includes('Войти')) {
         loginBtn.addEventListener('click', () => alert('🔐 Форма входа будет доступна в ближайшее время'));
