@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "postgres": "^3.4.9"
+    "tedious": "^19.2.1"
   }
 }

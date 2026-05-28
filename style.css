@@ -414,6 +414,54 @@ h2 {
     color: white;
 }
 
+/* Дополнительные стили для карточек книг */
+.price-group {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.price.purchase {
+    color: #1e3c3a;
+    font-weight: 800;
+}
+
+.price.rent {
+    color: #e67e22;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.button-group .rent-btn,
+.button-group .buy-btn {
+    flex: 1;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.button-group .rent-btn {
+    background: #eef2ff;
+    color: #1e3c3a;
+    border: none;
+}
+
+.button-group .buy-btn {
+    background: #1e3c3a;
+    color: white;
+    border: none;
+}
+
 /* RENT CTA */
 .rent-cta {
     background: linear-gradient(135deg, #eef5f2, #e2eae6);
